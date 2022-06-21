@@ -1,0 +1,7 @@
+{
+  "domain": "homewizard_custom",
+  "name": "HomeWizard Custom",
+  "requirements": [],
+  "iot_class": "assumed_state",
+  "version": "0.1.1"
+}
