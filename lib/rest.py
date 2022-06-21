@@ -9,7 +9,7 @@ class HomeWizardREST():
       self._base_url = f'http://{host}/{password}'
 
     def fetch(self, url):
-      _LOGGER.fatal(f'Fetching: {url}')
+      _LOGGER.info(f'Fetching: {url}')
       req = requests.get(f'{self._base_url}{url}', timeout=5)
 
       if req.status_code != 200:
@@ -21,7 +21,7 @@ class HomeWizardREST():
       sensors = self.fetch("/get-sensors")
       if sensors == None:
         return []
-      _LOGGER.fatal(sensors)
+      _LOGGER.info(sensors)
       return sensors['response']["switches"]
     
     def get_switch(self, id):
@@ -32,10 +32,10 @@ class HomeWizardREST():
     
     def set_dimmer(self, id, brightness):
       res = self.fetch(f'/sw/dim/{id}/{brightness}')
-      _LOGGER.fatal(res)
+      _LOGGER.info(res)
       return res
 
     def turn_switch(self, id, state):
       res = self.fetch(f'/sw/{id}/{state}')
-      _LOGGER.fatal(res)
+      _LOGGER.info(res)
       return res
